@@ -23,7 +23,7 @@
       <li><a href="{{ urlencode_plus(get_args, page=1) }}">1</a></span>
       {% if start_page > 2 %}
 	{% if amp %}
-	  <li class="disabled">...</li>
+	  <li class="disabled"><span>...</span></li>
 	{% else %}
 	  <li class="disabled"><a href="javascript:;">...</a></li>
 	{% endif %}
@@ -45,7 +45,7 @@
     {% if end_page < page.paginator.num_pages %}
       {% if end_page < page.paginator.num_pages - 1 %}
 	{% if amp %}
-          <li class="disabled">...</li>
+          <li class="disabled"><span>...</span></li>
 	{% else %}
 	  <li class="disabled"><a href="javascript:;">...</a></li>
 	{% endif %}
