@@ -1,5 +1,5 @@
 
-{% macro paginator(page, get_args={}) %}
+{% macro paginator(page, get_args={}, amp=False) %}
 {% if page.paginator.num_pages > 1 %}
   {% set ADJACENT_PAGES = 5 %}
 
@@ -22,13 +22,21 @@
     {% if start_page > 1 %}
       <li><a href="{{ urlencode_plus(get_args, page=1) }}">1</a></span>
       {% if start_page > 2 %}
-        <li class="disabled"><a href="javascript:;">...</a></li>
+	{% if amp %}
+	  <li class="disabled"><span>...</span></li>
+	{% else %}
+	  <li class="disabled"><a href="javascript:;">...</a></li>
+	{% endif %}
       {% endif %}
     {% endif %}
 
     {% for page_number in range(start_page, end_page) %}
       {% if page_number == page.number %}
-         <li class="active"><a href="javascript:;">{{ page.number }}</a></li>
+	{% if amp %}
+	  <li class="active"><span>{{ page.number }}</span></li>
+	{% else %}
+          <li class="active"><a href="javascript:;">{{ page.number }}</a></li>
+	{% endif %}
       {% else %}
          <li><a href="{{ urlencode_plus(get_args, page=page_number) }}">{{ page_number }}</a></li>
       {% endif %}
@@ -36,7 +44,11 @@
 
     {% if end_page < page.paginator.num_pages %}
       {% if end_page < page.paginator.num_pages - 1 %}
-        <li class="disabled"><a href="javascript:;">...</a></li>
+	{% if amp %}
+          <li class="disabled"><span>...</span></li>
+	{% else %}
+	  <li class="disabled"><a href="javascript:;">...</a></li>
+	{% endif %}
       {% endif %}
       <li><a href="{{ urlencode_plus(get_args, page=page.paginator.num_pages) }}">
         {{ page.paginator.num_pages }}
