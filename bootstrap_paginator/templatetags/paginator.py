@@ -15,7 +15,7 @@ except ImportError:
         @staticmethod
         def global_function(func):
             return func
-    lib = LibraryStub()
+    library = LibraryStub()
 
 
 PAGINATOR_ADJACENT_PAGES = getattr(settings, 'PAGINATOR_ADJACENT_PAGES', 2)
