@@ -9,7 +9,6 @@ from django.conf import settings
 
 try:
     from django_jinja import library
-    lib = library.Library()
 
 except ImportError:
     class LibraryStub(object):
@@ -57,7 +56,7 @@ def paginator(context, page=None):
     }
 
 
-@lib.global_function
+@library.global_function
 def urlencode_plus(values, **plus):
     if isinstance(values, QueryDict):
         values = values.dict()
