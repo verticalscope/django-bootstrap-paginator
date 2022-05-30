@@ -27,5 +27,6 @@ setup(
     zip_safe=False,
     install_requires=[
         'Django>=1.6',
+        'six>=1.10.0',
     ],
 )

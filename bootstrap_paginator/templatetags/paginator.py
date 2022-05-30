@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.utils.six.moves.urllib.parse import urlencode
-from django.utils.six import text_type
+from six.moves.urllib.parse import urlencode
+from six import text_type
 from django.http import QueryDict
 from django import template
 from django.conf import settings
